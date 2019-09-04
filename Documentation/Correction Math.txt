@@ -1,0 +1,34 @@
+Frequency adjustment formula (with the typecasting removed) is:
+
+	freq = freq + ((((( xtalCorr ) << 31 ) / 1000000000LL ) * freq ) >> 31 );
+
+
+Glenn's correction factor is:
+
+	xtalCorr = 970
+	xtalCorr = 0x3CA
+	xtalCorr = 0011 1100 1010
+
+	( xtalCorr << 31 ) = 0001 1110 0101 0000 0000 0000 0000 0000 0000 0000 0000
+	( xtalCorr << 31 ) = 1E500000000
+	( xtalCorr << 31 ) = 2,083,059,138,560
+
+	2,083,059,138,560 / 1,000,000,000 = 2,083    (note loss of precision)
+
+
+Assume calibrating at 10MHz:
+
+	freq = 10,000,000
+
+	2,083 * freq = 20,830,000,000
+	2,083 * freq = 4D9909380
+	2,083 * freq = 0100 1101 1001 1001 0000 1001 0011 1000 0000
+
+0000 1001
+
+	( 2,083 * freq ) >> 31 = 0000 1001 = 9   (note loss of precision)
+
+
+End result:
+
+	freq + (all that) = 10,000,009		(Agrees with the program)
