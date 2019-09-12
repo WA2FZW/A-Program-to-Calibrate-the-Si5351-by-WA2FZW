@@ -1,0 +1,65 @@
+Si5351 Calibration Program
+
+Initializing EEPROM
+
+Enter calibration test frequency in Hertz		<== 10,000,000 Entered
+Calibration will be performed at: 10,000,000 Hz
+
+When asked to enter a new correction factor, you may enter:
+
+    nnnnn (or =nnnnn) to set a new value
+    +nnnn to add an offset to the current value
+    -nnnn to subtract an offset from the current value
+    The enter key to use the current value
+    or 'R' or 'r' to reset the correction factor to zero
+    or 'S' or 's' to save the correction and get a new test frequency
+    or 'N' or 'n' to get a new test frequency without saving
+    or 'Q' or 'q' to quit and save the value in the EEPROM
+
+Checking for previous correction factor.
+EEPROM contains correction factor: 7,000
+We will start with that value.
+
+Enter a new correction factor or offset or
+hit 'Enter' to use the current correction factor	<== Entered -4,000
+
+Correction factor set to: 3,000
+
+Enter a new correction factor or offset or
+hit 'Enter' to use the current correction factor	<== Entered 'r'
+
+Correction factor set to:   0
+
+Enter a new correction factor or offset or
+hit 'Enter' to use the current correction factor	<== Entered 3,000
+
+Correction factor set to: 3,000
+
+Correction factor is saved in the EEPROM		<== Entered 's'
+
+Enter calibration test frequency in Hertz		<== Entered 5000000
+
+Calibration will be performed at:  5,000,000 Hz
+
+	Instructions repeated here
+
+Correction factor set to: 3,000
+
+Enter a new correction factor or offset or
+hit 'Enter' to use the current correction factor	<== Entered 'q'
+
+Correction factor is saved in the EEPROM
+Execution terminated! 
+
+
+Note:	If the EEPROM does not contain a valid offset, you will see the
+	following message:
+
+		EEPROM does not contain a valid correction factor.
+		Initializing the correction factor to:   0
+
+Note:	If the user just hits 'Enter' when asked for the frequency at shich
+	to perform the test, the following messages willl be displayed:
+
+		Using default test frequency.
+		Calibration will be performed at: 10,000,000 Hz
